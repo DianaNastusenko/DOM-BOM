@@ -42,11 +42,14 @@ buttonSubmit.onclick = function() {
 
 // Age Validation
 function ageValidation(ageValue) {
-    if (!ageValue.match(/([0-9])/g)) {
-        alert("Your Age is invalid! Age must include only numbers!");
-        return validationSuccess = false;
-    } else if (ageValue.match(/-/)) {
+    if (ageValue.match(/-/)) {
         alert("Your Age is invalid! Age should be more then  0!");
+        return validationSuccess = false;
+    } else if (ageValue.match(/0/)) {
+        alert("Your Age is invalid! Age should be more then  0!");
+        return validationSuccess = false;
+    } else if (!ageValue.match(/^(\d)*$/g)) {
+        alert("Your Age is invalid! Age must include only numbers!");
         return validationSuccess = false;
     } else if (ageValue.match(/ /)) {
         alert("Your Age is invalid! Age must include only numbers!");
