@@ -32,45 +32,39 @@ buttonSubmit.onclick = function() {
     var usernameValue = inputUsername.value;
     var dateValue = inputDate.value;
     var submitValue = buttonSubmit.value;
-    //Validation start
-    ageValidation(ageValue);
-    usernameValidation(usernameValue);
-    dateValidation(dateValue);
+    
+    return validation(ageValue,usernameValue,dateValue);
 };
 
 //---- Validation functions START----//
 
 // Age Validation
-function ageValidation(ageValue) {
+function validation(ageValue,usernameValue,dateValue,validationSuccess) {
     if (ageValue.match(/-/)) {
         alert("Your Age is invalid! Age should be more then  0!");
-        return validationSuccess = false;
-    } else if (ageValue.match(/0/)) {
+        validationSuccess = false;
+    } else if (ageValue.match(/^0/)) {
         alert("Your Age is invalid! Age should be more then  0!");
-        return validationSuccess = false;
+        validationSuccess = false;
     } else if (!ageValue.match(/^(\d)*$/g)) {
         alert("Your Age is invalid! Age must include only numbers!");
-        return validationSuccess = false;
+        validationSuccess = false;
     } else if (ageValue.match(/ /)) {
         alert("Your Age is invalid! Age must include only numbers!");
-        return validationSuccess = false;
+        validationSuccess = false;
     }
-}
 
 //Username validation
-function usernameValidation(usernameValue) {
     if (!usernameValue.match(/^(user_)[\S]*/g)) {
         alert("Your User Name is invalid! User Name should start from 'user_' and can contain any symbols after!");
-        return validationSuccess = false;
+        validationSuccess = false;
     }
-}
 
 //Date validation
-function dateValidation(dateValue) {
     var currentDate = moment().format('DD/MM/YYYY');
     if (currentDate !== dateValue) {
         alert("Your data is invalid! Please enter today's date. Date should be in format DD/MM/YYYY!");
-        return validationSuccess = false;
+        validationSuccess = false;
     }
     return validationSuccess;
 }
