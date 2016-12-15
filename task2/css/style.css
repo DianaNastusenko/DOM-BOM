@@ -5,14 +5,12 @@ h1 {
 .content {
   background: blue;
   height: 300px;
-  width: 100%;
+  width: 640px;
 }
 
 #parallax {
   background: red;
-  background: transparent;
-  
   background: url(http://www.verticalworld.net/school/programs/uploads/pics/program_108_1.jpg);
-  width: 100%;
+  width: 640px;
   height: 300px;
 }
